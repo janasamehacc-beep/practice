@@ -1,5 +1,5 @@
 import  sqlite3 
-connection = sqlite3.connect('ems.db')
+connection = sqlite3.connect('EMS.db')
 cursor = connection.cursor()
 cursor.execute('''CREATE TABLE IF NOT EXISTS Managers (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
