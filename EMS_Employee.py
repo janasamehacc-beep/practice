@@ -1,4 +1,5 @@
-import pyodbc 
+import pyodbc
+
 conn = pyodbc.connect(
     "Driver={ODBC Driver 18 for SQL Server};"
     r"Server=.\SQLEXPRESS;"
@@ -6,7 +7,9 @@ conn = pyodbc.connect(
     "Trusted_Connection=yes;"
     "TrustServerCertificate=yes;"
 )
-cursor=conn.cursor()
+
+cursor = conn.cursor()
+
 cursor.execute('''
 IF OBJECT_ID('Employees', 'U') IS NULL
 CREATE TABLE Employees (
