@@ -1,10 +1,10 @@
 import pyodbc 
-conn= pyodbc.connect( driver = '{ODBC Driver 18 for SQL Server};',
-                     server=r'.\SQLEXPRESS;',
-                     database='EMS;',
-                     trusted_connection='yes;',
-                        TrustServerCertificate='yes;'
-
+conn = pyodbc.connect(
+    "Driver={ODBC Driver 18 for SQL Server};"
+    r"Server=.\SQLEXPRESS;"
+    "Database=EMS;"
+    "Trusted_Connection=yes;"
+    "TrustServerCertificate=yes;"
 )
 cursor=conn.cursor()
 cursor.execute('''
