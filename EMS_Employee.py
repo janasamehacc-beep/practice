@@ -10,15 +10,18 @@ conn = pyodbc.connect(
 
 cursor = conn.cursor()
 
-cursor.execute('''
-IF OBJECT_ID('Employees', 'U') IS NULL
-CREATE TABLE Employees (
-    id INT PRIMARY KEY IDENTITY(1,1),
-    name NVARCHAR(100) NOT NULL,
-    department NVARCHAR(100) NOT NULL,
-    salary INT NOT NULL
-)
-''')
+# cursor.execute(''' ALTER TABLE Employees 
+#                ADD manager_id INT 
+#                 REFERENCES Managers(id)
+# ''')
+# cursor.execute(''' SELECT * FROM Employees JOIN Managers ON Employees.manager_id = Managers.id ''')
 
-conn.commit()
+cursor.execute(''' INSERT INTO Employees ( name,department, salary, manager_id) 
+                VALUES ( 'John Jay', 'IT', 60000, 1), 
+                ( 'Jane Doe', 'HR', 55000, 2),
+                ( 'Mike Smith', 'Finance', 70000, 1),
+                ( 'Emily Davis', 'IT', 65000, 1),
+                ('Sarah Johnson', 'Marketing', 60000, 3) 
+                ''')
+conn.commit() 
 conn.close()
