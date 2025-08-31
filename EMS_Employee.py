@@ -24,9 +24,10 @@ cursor = conn.cursor()
 #                 ('Sarah Johnson', 'Marketing', 60000, 3) 
 #                 ''')
 # cursor.execute(''' SELECT * FROM Employees ''')
-cursor.execute(''' UPDATE Employees
-SET salary = 1000
-WHERE name = 'John Jay';
- ''')
+# cursor.execute(''' UPDATE Employees
+# SET salary = 1000
+# WHERE name = 'John Jay';
+#  ''') 
+cursor.execute(''' DELETE Employees WHERE name= 'john jay' ''')
 conn.commit() 
 conn.close()
