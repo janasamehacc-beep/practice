@@ -9,13 +9,17 @@ conn = pyodbc.connect(
     "TrustServerCertificate=yes;"
 )
 cursor = conn.cursor()
-cursor.execute('''
-CREATE TABLE Managers (
-    id INT PRIMARY KEY IDENTITY(1,1),
-    name NVARCHAR(100) NOT NULL,
-    department NVARCHAR(100) NOT NULL
-)
-''')
-
+# cursor.execute('''
+# CREATE TABLE Managers (
+#     id INT PRIMARY KEY IDENTITY(1,1),
+#     name NVARCHAR(100) NOT NULL,
+#     department NVARCHAR(100) NOT NULL
+# )
+# ''')
+cursor.execute(''' INSERT INTO Managers ( name, department)
+                VALUES ( 'Alice Johnson', 'IT'), 
+                ( 'Bob Brown', 'HR'),
+                ( 'Charlie White', 'Finance')
+                ''')
 conn.commit()
 conn.close()
